@@ -37,31 +37,35 @@ const createApp = (args: Args): Promise<void> => {
   });
 };
 
-yargs
-  .scriptName('react-in-a-box')
-  .usage('$0 [name]')
-  .command({
-    command: '$0 [name]',
-    describe: 'create a new app',
-    builder: (yargs): Argv<{ name?: string }> =>
-      yargs.positional('name', {
-        required: true,
-        describe: 'app name',
-        type: 'string'
-      }),
-    handler: async (args: Args): Promise<void> => {
-      await createApp(args);
-    }
-  })
-  .demandCommand(1)
-  .option('scripts-version', {
-    default: '@next',
-    describe: 'react-scripts version',
-    type: 'string'
-  })
-  .option('template', {
-    default: 'cra-template@next',
-    describe: 'template package',
-    type: 'string'
-  })
-  .help().argv;
+const run = async (): Promise<void> => {
+  yargs
+    .scriptName('react-in-a-box')
+    .usage('$0 [name]')
+    .command({
+      command: '$0 [name]',
+      describe: 'create a new app',
+      builder: (yargs): Argv<{ name?: string }> =>
+        yargs.positional('name', {
+          required: true,
+          describe: 'app name',
+          type: 'string'
+        }),
+      handler: async (args: Args): Promise<void> => {
+        await createApp(args);
+      }
+    })
+    .demandCommand(1)
+    .option('scripts-version', {
+      default: '@next',
+      describe: 'react-scripts version',
+      type: 'string'
+    })
+    .option('template', {
+      default: 'cra-template@next',
+      describe: 'template package',
+      type: 'string'
+    })
+    .help().argv;
+};
+
+export default run;

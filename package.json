@@ -1,9 +1,12 @@
 {
   "name": "react-in-a-box",
   "description": "It's React, in a box.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Ian Sutherland <ian@iansutherland.ca>",
   "license": "MIT",
+  "bin": {
+    "react-in-a-box": "bin/react-in-a-box.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/iansu/react-in-a-box"
@@ -16,8 +19,12 @@
     "build": "tsc",
     "clean": "rimraf build",
     "format": "prettier --write \"**/*.{ts,js,json,yaml,yml,md}\"",
-    "format:check": "prettier --debug-check \"**/*.{ts,js,json,yaml,yml,md}\""
+    "format:check": "prettier --debug-check \"**/*.{ts,js,json,yaml,yml,md}\"",
+    "prepublishOnly": "rimraf build && tsc -p tsconfig.build.json"
   },
+  "files": [
+    "build/*"
+  ],
   "lint-staged": {
     "*.{ts,js}": [
       "eslint --max-warnings 100",
