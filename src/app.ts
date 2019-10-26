@@ -16,7 +16,7 @@ const createApp = (args: Args): Promise<void> => {
     }
 
     if (args.name && args['scripts-version'] && args.template) {
-      const proc = spawn('create-react-app', [
+      const proc = spawn('./node_modules/.bin/create-react-app', [
         `--scripts-version=${args['scripts-version']}`,
         `--template=${args.template}`,
         args.name
