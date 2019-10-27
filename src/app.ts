@@ -1,3 +1,4 @@
+import path from 'path';
 import chalk from 'chalk';
 import yargs, { Argv } from 'yargs';
 import { spawn } from 'child_process';
@@ -16,7 +17,7 @@ const createApp = (args: Args): Promise<void> => {
     }
 
     if (args.name && args['scripts-version'] && args.template) {
-      const proc = spawn('./node_modules/.bin/create-react-app', [
+      const proc = spawn(path.join(__dirname, '..', 'node_modules', '.bin', 'create-react-app'), [
         `--scripts-version=${args['scripts-version']}`,
         `--template=${args.template}`,
         args.name
