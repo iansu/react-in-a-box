@@ -1,7 +1,7 @@
 {
   "name": "react-in-a-box",
   "description": "It's React, in a box.",
-  "version": "0.1.4",
+  "version": "0.1.6",
   "author": "Ian Sutherland <ian@iansutherland.ca>",
   "license": "MIT",
   "bin": {
