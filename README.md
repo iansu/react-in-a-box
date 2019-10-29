@@ -2,7 +2,7 @@
 
 It's React, in a box.
 
-Bootstraps an app with the `@next` version of Create React App.
+Bootstrap an app with the `@next` version of Create React App.
 
 ## Usage
 
